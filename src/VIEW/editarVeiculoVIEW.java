@@ -267,6 +267,7 @@ public void editarVeiculo(){
         
         locadoraVIEW telaLocadora = new locadoraVIEW(id_locadora);
         telaLocadora.setVisible(true);
+        telaLocadora.setLocationRelativeTo(null);
         dispose();
 }
 }
