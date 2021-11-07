@@ -42,6 +42,7 @@ public class loginVIEW extends javax.swing.JFrame {
         btnLogar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
         txtSenha = new javax.swing.JPasswordField();
+        canvas1 = new java.awt.Canvas();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,9 +81,6 @@ public class loginVIEW extends javax.swing.JFrame {
                         .addGap(169, 169, 169)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnVisitante)
                         .addGap(74, 74, 74)
@@ -94,13 +92,20 @@ public class loginVIEW extends javax.swing.JFrame {
                         .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(txtSenha))))
+                            .addComponent(txtSenha)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(31, 31, 31)
+                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,7 +115,7 @@ public class loginVIEW extends javax.swing.JFrame {
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVisitante)
                     .addComponent(btnCadastrar))
@@ -204,6 +209,7 @@ public class loginVIEW extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLogar;
     private javax.swing.JButton btnVisitante;
+    private java.awt.Canvas canvas1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField txtSenha;

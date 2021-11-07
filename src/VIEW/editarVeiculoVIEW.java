@@ -67,6 +67,7 @@ public class editarVeiculoVIEW extends javax.swing.JFrame {
 
         jLabel7.setText("Acessórios:");
 
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/Icones/salvar.png"))); // NOI18N
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +118,7 @@ public class editarVeiculoVIEW extends javax.swing.JFrame {
                                 .addComponent(jLabel8)
                                 .addGap(140, 140, 140)
                                 .addComponent(jLabel1)))))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnSalvar)
@@ -159,7 +160,7 @@ public class editarVeiculoVIEW extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalvar)
                 .addGap(44, 44, 44))
         );
