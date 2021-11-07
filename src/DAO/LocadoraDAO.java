@@ -78,11 +78,59 @@ public int maiorIdVeiculo(){
      return idMaximo;
 }
     public void cadastrarLocadora(LocadoraDTO locadora, LocalizacaoDTO localizacao){
-        
-        String sql = "insert into locadora (id, usuario, senha, nome, cnpj, telefone,endereco, bairro, cidade, estado) VALUES(?,?,?,?,?,?,?,?,?,?)";
-        con = new ConexaoDAO().conexao();
+        if (locadora.getUsuario().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo Usuario é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+           requestFocus();
+            return;
+        }
+         if (locadora.getSenha().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo Senha é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+            requestFocus();
+            return;
+         }
+          if (locadora.getNome().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo Nome é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+            requestFocus();
+            return;
+          }
+          if (locadora.getCnpj().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo CNPJ é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+           requestFocus();
+            return;
+          }
+          if (locadora.getTelefone().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo Telefone é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+            requestFocus();
+            return;
+          }
+           if (localizacao.getEndereco().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo Endereço é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+            requestFocus();
+            return;
+           }
+           if (localizacao.getBairro().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo Bairro é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+            requestFocus();
+            return;
+           }
+           if (localizacao.getCidade().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo Cidade é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+            requestFocus();
+            return;
+           }
+           if (localizacao.getEstado().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo Estado é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+            requestFocus();
+            return;
+           }
+      /* if(locadora.getUsuario().equals("")|| locadora.getSenha().equals("")|| locadora.getNome().equals("")|| locadora.getCnpj().equals("") || locadora.getTelefone().equals("")|| localizacao.getEndereco().equals("")|| localizacao.getBairro().equals("")|| localizacao.getCidade().equals("")|| localizacao.getEstado().equals("")){
+           JOptionPane.showMessageDialog(null,"Preencha todos os campos", "Aviso", JOptionPane.WARNING_MESSAGE);
+           return;
+       }*/
       
         try {
+            String sql = "insert into locadora (id, usuario, senha, nome, cnpj, telefone,endereco, bairro, cidade, estado) VALUES(?,?,?,?,?,?,?,?,?,?)";
+            con = new ConexaoDAO().conexao();
             stm = con.prepareStatement(sql);
             
             stm.setInt(1, locadora.getId());
@@ -98,16 +146,21 @@ public int maiorIdVeiculo(){
             
             stm.execute();
             stm.close();
-            
+          JOptionPane.showMessageDialog(null,"Cadastrado com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);  
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"Cadastrar Locadora" + e);
         }
     }
     public void cadastrarVeiculo(int idLocadora, VeiculoDTO veiculo){
-        String sql = "insert into veiculo (id, id_locadora, marca, modelo, ano, acessorios, preco, categoria) values (?,?,?,?,?,?,?,?)";
-        con = new ConexaoDAO().conexao();
+       if(veiculo.getMarca().equals("") || veiculo.getModelo().equals("")|| veiculo.getAno().equals("")|| veiculo.getAcessorios().equals("")|| veiculo.getPreco().equals("") || veiculo.getCategoria().equals("")){
+           JOptionPane.showMessageDialog(null,"Preencha todos os campos", "Aviso", JOptionPane.WARNING_MESSAGE);
+           requestFocus();
+           return;
+       }
         
         try {
+            String sql = "insert into veiculo (id, id_locadora, marca, modelo, ano, acessorios, preco, categoria) values (?,?,?,?,?,?,?,?)";
+        con = new ConexaoDAO().conexao();
             stm = con.prepareStatement(sql);
             
             stm.setInt(1, veiculo.getId());
@@ -121,9 +174,10 @@ public int maiorIdVeiculo(){
             
             stm.execute();
             stm.close();
+            JOptionPane.showMessageDialog(null,"Cadastrado com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
             
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Cadastrar Veiculo" + e);
+            JOptionPane.showMessageDialog(null,"Veiculo não cadastrado" + e);
         }
     }
     public ArrayList<VeiculoDTO> PesquisarVeiculoLocadora(int idLocadora) {
@@ -369,5 +423,9 @@ public int maiorIdVeiculo(){
             
         }
       return listaVeiculo;
+    }
+
+    private void requestFocus() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

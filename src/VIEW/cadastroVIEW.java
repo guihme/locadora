@@ -210,9 +210,7 @@ public class cadastroVIEW extends javax.swing.JFrame {
         
         LocadoraDTO locadora = new LocadoraDTO(usuario, senha, nome_locadora, cnpj_locadora, telefone_locadora);
         LocalizacaoDTO localizacao = new LocalizacaoDTO();
-        
-
-    
+       
                
         localizacao.setEndereco(endereco_locadora);
         localizacao.setBairro(bairro_locadra);

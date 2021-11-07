@@ -163,7 +163,9 @@ public class cadastroVeiculoVIEW extends javax.swing.JFrame {
         categoria = txtCategoria.getText();
         acessorios = txtAcessorio.getText();
         preco = txtPreco.getText();
-        
+        /*if ("".equals(marca) || "".equals(modelo)|| "".equals(ano) || "".equals(categoria) || "".equals(acessorios) || "".equals(preco) ){
+            throw new RuntimeException("Preencha todos os campos");
+        }*/
         VeiculoDTO veiculo = new VeiculoDTO(marca, modelo, ano, acessorios, preco, categoria);
         
         LocadoraDAO locadora = new LocadoraDAO();
