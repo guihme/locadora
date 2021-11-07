@@ -74,6 +74,7 @@ public class locadoraVIEW extends javax.swing.JFrame {
 
         jLabel1.setText("Carros cadastrados");
 
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/Icones/editar.png"))); // NOI18N
         btnEditar.setText("Editar veículo");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +82,7 @@ public class locadoraVIEW extends javax.swing.JFrame {
             }
         });
 
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/Icones/x.png"))); // NOI18N
         btnExcluir.setText("Excluir veículo");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +90,7 @@ public class locadoraVIEW extends javax.swing.JFrame {
             }
         });
 
+        btnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/Icones/newp.png"))); // NOI18N
         btnAdicionar.setText("Adicionar veículo");
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,13 +157,13 @@ public class locadoraVIEW extends javax.swing.JFrame {
                     .addComponent(cbxFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
-                .addGap(59, 59, 59)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditar)
                     .addComponent(btnExcluir)
                     .addComponent(btnAdicionar))
-                .addGap(25, 25, 25))
+                .addGap(49, 49, 49))
         );
 
         pack();

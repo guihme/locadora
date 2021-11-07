@@ -51,6 +51,7 @@ public class cadastroVeiculoVIEW extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/Icones/carro.png"))); // NOI18N
         jLabel1.setText("Veículo");
 
         jLabel2.setText("Marca:");
