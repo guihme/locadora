@@ -20,6 +20,12 @@ public class LocadoraDAO implements Locadora{
     ArrayList<LocadoraDTO> lista = new ArrayList<>();
     ArrayList<VeiculoDTO> listaVeiculo = new ArrayList<>();
 
+    /**
+     *
+     * @param locadora
+     * @return
+     */
+    @Override
     public ResultSet autenticar(LocadoraDTO locadora) {
         String sql = "select * FROM locadora where usuario = ? and senha = ?";
         con = new ConexaoDAO().conexao();
@@ -40,6 +46,11 @@ public class LocadoraDAO implements Locadora{
         }
     }
 
+    /**
+     *
+     * @return
+     */
+    @Override
     public int maiorIdLocadora() {
         String sql = "select * from locadora where id=(select max(id) from locadora)";
         con = new ConexaoDAO().conexao();
@@ -59,6 +70,11 @@ public class LocadoraDAO implements Locadora{
         return idMaximo;
     }
 
+    /**
+     *
+     * @return
+     */
+    @Override
     public int maiorIdVeiculo() {
         String sql = "select * from veiculo where id=(select max(id) from veiculo)";
         con = new ConexaoDAO().conexao();
@@ -78,6 +94,12 @@ public class LocadoraDAO implements Locadora{
         return idMaximo;
     }
 
+    /**
+     *
+     * @param locadora
+     * @param localizacao
+     */
+    @Override
     public void cadastrarLocadora(LocadoraDTO locadora, LocalizacaoDTO localizacao) {
         if (locadora.getUsuario().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo Usuario é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
@@ -153,6 +175,12 @@ public class LocadoraDAO implements Locadora{
         }
     }
 
+    /**
+     *
+     * @param idLocadora
+     * @param veiculo
+     */
+    @Override
     public void cadastrarVeiculo(int idLocadora, VeiculoDTO veiculo) {
         if (veiculo.getMarca().equals("") || veiculo.getModelo().equals("") || veiculo.getAno().equals("") || veiculo.getAcessorios().equals("") || veiculo.getPreco().equals("") || veiculo.getCategoria().equals("")) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Aviso", JOptionPane.WARNING_MESSAGE);
@@ -183,6 +211,12 @@ public class LocadoraDAO implements Locadora{
         }
     }
 
+    /**
+     *
+     * @param idLocadora
+     * @return
+     */
+    @Override
     public ArrayList<VeiculoDTO> PesquisarVeiculoLocadora(int idLocadora) {
         String sql = "select * FROM veiculo where id_locadora = ?";
         con = new ConexaoDAO().conexao();
@@ -212,6 +246,11 @@ public class LocadoraDAO implements Locadora{
         return listaVeiculo;
     }
 
+    /**
+     *
+     * @return
+     */
+    @Override
     public ArrayList<VeiculoDTO> listarVeiculos() {
         String sql = "select * FROM veiculo";
         con = new ConexaoDAO().conexao();
@@ -240,6 +279,12 @@ public class LocadoraDAO implements Locadora{
         return listaVeiculo;
     }
 
+    /**
+     *
+     * @param idLocadora
+     * @return
+     */
+    @Override
     public LocadoraDTO encontrarLocadora(int idLocadora) {
         String sql = "select * FROM locadora where id = ?";
         con = new ConexaoDAO().conexao();
@@ -269,6 +314,12 @@ public class LocadoraDAO implements Locadora{
         return locadora;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
+    @Override
     public VeiculoDTO buscarVeiculo(int id) {
         String sql = "select * FROM veiculo where id = ?";
         con = new ConexaoDAO().conexao();
@@ -294,6 +345,11 @@ public class LocadoraDAO implements Locadora{
         return veiculo;
     }
 
+    /**
+     *
+     * @param veiculo
+     */
+    @Override
     public void editarVeiculo(VeiculoDTO veiculo) {
         String sql = "update veiculo set marca = ?, modelo = ?, ano = ?, acessorios = ?, preco = ?, categoria = ? where id = ?";
         con = new ConexaoDAO().conexao();
@@ -317,6 +373,11 @@ public class LocadoraDAO implements Locadora{
         }
     }
 
+    /**
+     *
+     * @param id
+     */
+    @Override
     public void deletarVeiculo(int id) {
         String sql = "delete FROM veiculo where id = ?";
         con = new ConexaoDAO().conexao();

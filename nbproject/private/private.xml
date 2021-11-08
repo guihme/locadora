@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/layan/Documents/GitHub/locadora/src/VIEW/loginVIEW.java</file>
+            <file>file:/C:/Users/layan/Documents/GitHub/locadora/src/DTO/LocalizacaoDTO.java</file>
             <file>file:/C:/Users/layan/Documents/GitHub/locadora/src/VIEW/cadastroVeiculoVIEW.java</file>
             <file>file:/C:/Users/layan/Documents/GitHub/locadora/src/DAO/LocadoraDAO.java</file>
-            <file>file:/C:/Users/layan/Documents/GitHub/locadora/src/VIEW/cadastroVIEW.java</file>
-            <file>file:/C:/Users/layan/Documents/GitHub/locadora/src/VIEW/locadoraVIEW.java</file>
-            <file>file:/C:/Users/layan/Documents/GitHub/locadora/src/VIEW/listarVIEW.java</file>
-            <file>file:/C:/Users/layan/Documents/GitHub/locadora/src/VIEW/editarVeiculoVIEW.java</file>
+            <file>file:/C:/Users/layan/Documents/GitHub/locadora/src/DTO/VeiculoDTO.java</file>
         </group>
     </open-files>
 </project-private>
