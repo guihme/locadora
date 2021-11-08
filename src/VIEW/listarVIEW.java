@@ -240,8 +240,8 @@ public class listarVIEW extends javax.swing.JFrame {
                model.addRow(new Object[] {
                    lista.get(num).getMarca(),
                    lista.get(num).getModelo(),
-                   lista.get(num).getCategoria(),
                    lista.get(num).getAcessorios(),
+                   lista.get(num).getCategoria(),
                    lista.get(num).getAno(),
                    lista.get(num).getPreco(),
                    loca.getNome(),

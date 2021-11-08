@@ -1,5 +1,6 @@
 package DAO;
 
+import DTO.Locadora;
 import DTO.LocadoraDTO;
 import DTO.LocalizacaoDTO;
 import DTO.VeiculoDTO;
@@ -10,129 +11,129 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
+public class LocadoraDAO implements Locadora{
 
-public class LocadoraDAO {
     Connection con;
     PreparedStatement stm;
     ResultSet res;
     int idMaximo = -1;
     ArrayList<LocadoraDTO> lista = new ArrayList<>();
     ArrayList<VeiculoDTO> listaVeiculo = new ArrayList<>();
-   
-    
-public ResultSet autenticar(LocadoraDTO locadora){
+
+    public ResultSet autenticar(LocadoraDTO locadora) {
         String sql = "select * FROM locadora where usuario = ? and senha = ?";
         con = new ConexaoDAO().conexao();
         try {
             stm = con.prepareStatement(sql);
-     
+
             stm.setString(1, locadora.getUsuario());
             stm.setString(2, locadora.getSenha());
-            
+
             res = stm.executeQuery();
-            
+
             return res;
-  
+
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Autenticar:" + e);
-            
+
             return null;
         }
     }
-public int maiorIdLocadora(){
-    String sql = "select * from locadora where id=(select max(id) from locadora)";
-    con = new ConexaoDAO().conexao();
-     try {
-            stm = con.prepareStatement(sql);
-            res = stm.executeQuery();
-            
-            res.next();
-            
-            idMaximo = res.getInt("id");
-            stm.close();
-            
-           }catch (SQLException e) {
-                JOptionPane.showConfirmDialog(null, "FuncionarioDAO Pesquisar:" + e);
-                
-          
-        }
-     return idMaximo;
-}
 
-public int maiorIdVeiculo(){
-    String sql = "select * from veiculo where id=(select max(id) from veiculo)";
-    con = new ConexaoDAO().conexao();
-     try {
+    public int maiorIdLocadora() {
+        String sql = "select * from locadora where id=(select max(id) from locadora)";
+        con = new ConexaoDAO().conexao();
+        try {
             stm = con.prepareStatement(sql);
             res = stm.executeQuery();
-            
+
             res.next();
-            
+
             idMaximo = res.getInt("id");
             stm.close();
-            
-           }catch (SQLException e) {
-            JOptionPane.showConfirmDialog(null, "FuncionarioDAO Maior id veiculo:" + e);
-          
+
+        } catch (SQLException e) {
+            JOptionPane.showConfirmDialog(null, "FuncionarioDAO Pesquisar:" + e);
+
         }
-     return idMaximo;
-}
-    public void cadastrarLocadora(LocadoraDTO locadora, LocalizacaoDTO localizacao){
-        if (locadora.getUsuario().equals("")){
+        return idMaximo;
+    }
+
+    public int maiorIdVeiculo() {
+        String sql = "select * from veiculo where id=(select max(id) from veiculo)";
+        con = new ConexaoDAO().conexao();
+        try {
+            stm = con.prepareStatement(sql);
+            res = stm.executeQuery();
+
+            res.next();
+
+            idMaximo = res.getInt("id");
+            stm.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showConfirmDialog(null, "FuncionarioDAO Maior id veiculo:" + e);
+
+        }
+        return idMaximo;
+    }
+
+    public void cadastrarLocadora(LocadoraDTO locadora, LocalizacaoDTO localizacao) {
+        if (locadora.getUsuario().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo Usuario é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
-           requestFocus();
+            requestFocus();
             return;
         }
-         if (locadora.getSenha().equals("")){
+        if (locadora.getSenha().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo Senha é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
             requestFocus();
             return;
-         }
-          if (locadora.getNome().equals("")){
+        }
+        if (locadora.getNome().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo Nome é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
             requestFocus();
             return;
-          }
-          if (locadora.getCnpj().equals("")){
+        }
+        if (locadora.getCnpj().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo CNPJ é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
-           requestFocus();
+            requestFocus();
             return;
-          }
-          if (locadora.getTelefone().equals("")){
+        }
+        if (locadora.getTelefone().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo Telefone é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
             requestFocus();
             return;
-          }
-           if (localizacao.getEndereco().equals("")){
+        }
+        if (localizacao.getEndereco().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo Endereço é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
             requestFocus();
             return;
-           }
-           if (localizacao.getBairro().equals("")){
+        }
+        if (localizacao.getBairro().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo Bairro é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
             requestFocus();
             return;
-           }
-           if (localizacao.getCidade().equals("")){
+        }
+        if (localizacao.getCidade().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo Cidade é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
             requestFocus();
             return;
-           }
-           if (localizacao.getEstado().equals("")){
+        }
+        if (localizacao.getEstado().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo Estado é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
             requestFocus();
             return;
-           }
-      /* if(locadora.getUsuario().equals("")|| locadora.getSenha().equals("")|| locadora.getNome().equals("")|| locadora.getCnpj().equals("") || locadora.getTelefone().equals("")|| localizacao.getEndereco().equals("")|| localizacao.getBairro().equals("")|| localizacao.getCidade().equals("")|| localizacao.getEstado().equals("")){
+        }
+        /* if(locadora.getUsuario().equals("")|| locadora.getSenha().equals("")|| locadora.getNome().equals("")|| locadora.getCnpj().equals("") || locadora.getTelefone().equals("")|| localizacao.getEndereco().equals("")|| localizacao.getBairro().equals("")|| localizacao.getCidade().equals("")|| localizacao.getEstado().equals("")){
            JOptionPane.showMessageDialog(null,"Preencha todos os campos", "Aviso", JOptionPane.WARNING_MESSAGE);
            return;
        }*/
-      
+
         try {
             String sql = "insert into locadora (id, usuario, senha, nome, cnpj, telefone,endereco, bairro, cidade, estado) VALUES(?,?,?,?,?,?,?,?,?,?)";
             con = new ConexaoDAO().conexao();
             stm = con.prepareStatement(sql);
-            
+
             stm.setInt(1, locadora.getId());
             stm.setString(2, locadora.getUsuario());
             stm.setString(3, locadora.getSenha());
@@ -143,26 +144,27 @@ public int maiorIdVeiculo(){
             stm.setString(8, localizacao.getBairro());
             stm.setString(9, localizacao.getCidade());
             stm.setString(10, localizacao.getEstado());
-            
+
             stm.execute();
             stm.close();
-          JOptionPane.showMessageDialog(null,"Cadastrado com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);  
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Cadastrar Locadora" + e);
+            JOptionPane.showMessageDialog(null, "Cadastrar Locadora" + e);
         }
     }
-    public void cadastrarVeiculo(int idLocadora, VeiculoDTO veiculo){
-       if(veiculo.getMarca().equals("") || veiculo.getModelo().equals("")|| veiculo.getAno().equals("")|| veiculo.getAcessorios().equals("")|| veiculo.getPreco().equals("") || veiculo.getCategoria().equals("")){
-           JOptionPane.showMessageDialog(null,"Preencha todos os campos", "Aviso", JOptionPane.WARNING_MESSAGE);
-           requestFocus();
-           return;
-       }
-        
+
+    public void cadastrarVeiculo(int idLocadora, VeiculoDTO veiculo) {
+        if (veiculo.getMarca().equals("") || veiculo.getModelo().equals("") || veiculo.getAno().equals("") || veiculo.getAcessorios().equals("") || veiculo.getPreco().equals("") || veiculo.getCategoria().equals("")) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Aviso", JOptionPane.WARNING_MESSAGE);
+            requestFocus();
+            return;
+        }
+
         try {
             String sql = "insert into veiculo (id, id_locadora, marca, modelo, ano, acessorios, preco, categoria) values (?,?,?,?,?,?,?,?)";
-        con = new ConexaoDAO().conexao();
+            con = new ConexaoDAO().conexao();
             stm = con.prepareStatement(sql);
-            
+
             stm.setInt(1, veiculo.getId());
             stm.setInt(2, idLocadora);
             stm.setString(3, veiculo.getMarca());
@@ -171,25 +173,26 @@ public int maiorIdVeiculo(){
             stm.setString(6, veiculo.getAcessorios());
             stm.setString(7, veiculo.getPreco());
             stm.setString(8, veiculo.getCategoria());
-            
+
             stm.execute();
             stm.close();
-            JOptionPane.showMessageDialog(null,"Cadastrado com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-            
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Veiculo não cadastrado" + e);
+            JOptionPane.showMessageDialog(null, "Veiculo não cadastrado" + e);
         }
     }
+
     public ArrayList<VeiculoDTO> PesquisarVeiculoLocadora(int idLocadora) {
         String sql = "select * FROM veiculo where id_locadora = ?";
         con = new ConexaoDAO().conexao();
-        
+
         try {
             stm = con.prepareStatement(sql);
             stm.setInt(1, idLocadora);
             res = stm.executeQuery();
-            
-            while(res.next()) {
+
+            while (res.next()) {
                 VeiculoDTO veiculo = new VeiculoDTO();
                 veiculo.setId(res.getInt("id"));
                 veiculo.setId_locadora(res.getInt("id_locadora"));
@@ -199,24 +202,25 @@ public int maiorIdVeiculo(){
                 veiculo.setAcessorios(res.getString("acessorios"));
                 veiculo.setCategoria(res.getString("categoria"));
                 veiculo.setPreco(res.getString("preco"));
-                
+
                 listaVeiculo.add(veiculo);
-           }
+            }
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Pesquisar:" + e);
-            
+
         }
-      return listaVeiculo;
+        return listaVeiculo;
     }
+
     public ArrayList<VeiculoDTO> listarVeiculos() {
         String sql = "select * FROM veiculo";
         con = new ConexaoDAO().conexao();
-        
+
         try {
             stm = con.prepareStatement(sql);
             res = stm.executeQuery();
-            
-            while(res.next()) {
+
+            while (res.next()) {
                 VeiculoDTO veiculo = new VeiculoDTO();
                 veiculo.setId(res.getInt("id"));
                 veiculo.setId_locadora(res.getInt("id_locadora"));
@@ -226,15 +230,16 @@ public int maiorIdVeiculo(){
                 veiculo.setAcessorios(res.getString("acessorios"));
                 veiculo.setCategoria(res.getString("categoria"));
                 veiculo.setPreco(res.getString("preco"));
-                
+
                 listaVeiculo.add(veiculo);
-           }
+            }
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Pesquisar:" + e);
-            
+
         }
-      return listaVeiculo;
+        return listaVeiculo;
     }
+
     public LocadoraDTO encontrarLocadora(int idLocadora) {
         String sql = "select * FROM locadora where id = ?";
         con = new ConexaoDAO().conexao();
@@ -243,9 +248,9 @@ public int maiorIdVeiculo(){
             stm = con.prepareStatement(sql);
             stm.setInt(1, idLocadora);
             res = stm.executeQuery();
-            
+
             res.next();
-            
+
             LocalizacaoDTO localizacao = new LocalizacaoDTO();
             locadora.setId(res.getInt("id"));
             locadora.setNome(res.getString("nome"));
@@ -256,15 +261,15 @@ public int maiorIdVeiculo(){
             localizacao.setCidade(res.getString("cidade"));
             localizacao.setEstado(res.getString("estado"));
             locadora.setLocalizacao(localizacao);
-                
-   
+
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Pesquisar Locadora:" + e);
-            
+
         }
         return locadora;
     }
-    public VeiculoDTO buscarVeiculo(int id){
+
+    public VeiculoDTO buscarVeiculo(int id) {
         String sql = "select * FROM veiculo where id = ?";
         con = new ConexaoDAO().conexao();
         VeiculoDTO veiculo = new VeiculoDTO();
@@ -281,20 +286,21 @@ public int maiorIdVeiculo(){
             veiculo.setAcessorios(res.getString("acessorios"));
             veiculo.setCategoria(res.getString("categoria"));
             veiculo.setPreco(res.getString("preco"));
-               
+
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Buscar Veiculo:" + e);
-            
+
         }
-      return veiculo;
+        return veiculo;
     }
-    public void editarVeiculo(VeiculoDTO veiculo){
+
+    public void editarVeiculo(VeiculoDTO veiculo) {
         String sql = "update veiculo set marca = ?, modelo = ?, ano = ?, acessorios = ?, preco = ?, categoria = ? where id = ?";
         con = new ConexaoDAO().conexao();
-        
+
         try {
             stm = con.prepareStatement(sql);
-           
+
             stm.setString(1, veiculo.getMarca());
             stm.setString(2, veiculo.getModelo());
             stm.setString(3, veiculo.getAno());
@@ -302,45 +308,47 @@ public int maiorIdVeiculo(){
             stm.setString(5, veiculo.getPreco());
             stm.setString(6, veiculo.getCategoria());
             stm.setInt(7, veiculo.getId());
-            
+
             stm.execute();
             stm.close();
-            
+
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Editar Veiculo" + e);
+            JOptionPane.showMessageDialog(null, "Editar Veiculo" + e);
         }
     }
-    public void deletarVeiculo(int id){
+
+    public void deletarVeiculo(int id) {
         String sql = "delete FROM veiculo where id = ?";
         con = new ConexaoDAO().conexao();
-        
+
         try {
             stm = con.prepareStatement(sql);
-            
+
             stm.setInt(1, id);
-           
+
             stm.execute();
             stm.close();
-            
+
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Buscar Veiculo:" + e);
-            
+
         }
- 
+
     }
-    public ArrayList<VeiculoDTO> fitrarPorVeiculoLocadora(int idLocadora, String coluna, String pesquisa){
+
+    public ArrayList<VeiculoDTO> fitrarPorVeiculoLocadora(int idLocadora, String coluna, String pesquisa) {
         String sql = String.format("select * FROM veiculo where id_locadora = ? and %s like ?", coluna);
         con = new ConexaoDAO().conexao();
-        
+
         try {
             stm = con.prepareStatement(sql);
-            
+
             stm.setInt(1, idLocadora);
-            stm.setString(2, "%"+pesquisa+"%");
-            
+            stm.setString(2, "%" + pesquisa + "%");
+
             res = stm.executeQuery();
-            
-            while(res.next()) {
+
+            while (res.next()) {
                 VeiculoDTO veiculo = new VeiculoDTO();
                 veiculo.setId(res.getInt("id"));
                 veiculo.setId_locadora(res.getInt("id_locadora"));
@@ -350,27 +358,28 @@ public int maiorIdVeiculo(){
                 veiculo.setAcessorios(res.getString("acessorios"));
                 veiculo.setCategoria(res.getString("categoria"));
                 veiculo.setPreco(res.getString("preco"));
-                
+
                 listaVeiculo.add(veiculo);
-           }
+            }
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Pesquisar:" + e);
-            
+
         }
-      return listaVeiculo;
+        return listaVeiculo;
     }
-    public ArrayList<LocadoraDTO> fitrarPorLocadora(String coluna, String pesquisa){
+
+    public ArrayList<LocadoraDTO> fitrarPorLocadora(String coluna, String pesquisa) {
         String sql = String.format("select * FROM locadora where %s like ?", coluna);
         con = new ConexaoDAO().conexao();
-        
+
         try {
             stm = con.prepareStatement(sql);
 
-            stm.setString(1, "%"+pesquisa+"%");
-            
+            stm.setString(1, "%" + pesquisa + "%");
+
             res = stm.executeQuery();
-            
-            while(res.next()) {
+
+            while (res.next()) {
                 LocadoraDTO locadora = new LocadoraDTO();
                 LocalizacaoDTO localizacao = new LocalizacaoDTO();
                 locadora.setId(res.getInt("id"));
@@ -383,29 +392,30 @@ public int maiorIdVeiculo(){
                 localizacao.setEstado(res.getString("estado"));
                 locadora.setLocalizacao(localizacao);
                 locadora.setVeiculos(PesquisarVeiculoLocadora(locadora.getId()));
-                
-                if(locadora.getVeiculos().size() > 0){
+
+                if (locadora.getVeiculos().size() > 0) {
                     lista.add(locadora);
                 }
-           }
+            }
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Buscar Locadoras:" + e);
-            
+
         }
-      return lista;
+        return lista;
     }
-    public ArrayList<VeiculoDTO> fitrarPorVeiculo(String coluna, String pesquisa){
+
+    public ArrayList<VeiculoDTO> fitrarPorVeiculo(String coluna, String pesquisa) {
         String sql = String.format("select * FROM veiculo where %s like ?", coluna);
         con = new ConexaoDAO().conexao();
-        
+
         try {
             stm = con.prepareStatement(sql);
-           
-            stm.setString(1, "%"+pesquisa+"%");
-            
+
+            stm.setString(1, "%" + pesquisa + "%");
+
             res = stm.executeQuery();
-            
-            while(res.next()) {
+
+            while (res.next()) {
                 VeiculoDTO veiculo = new VeiculoDTO();
                 veiculo.setId(res.getInt("id"));
                 veiculo.setId_locadora(res.getInt("id_locadora"));
@@ -415,14 +425,14 @@ public int maiorIdVeiculo(){
                 veiculo.setAcessorios(res.getString("acessorios"));
                 veiculo.setCategoria(res.getString("categoria"));
                 veiculo.setPreco(res.getString("preco"));
-                
+
                 listaVeiculo.add(veiculo);
-           }
+            }
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Pesquisar:" + e);
-            
+
         }
-      return listaVeiculo;
+        return listaVeiculo;
     }
 
     private void requestFocus() {
