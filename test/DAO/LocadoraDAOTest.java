@@ -27,12 +27,12 @@ public class LocadoraDAOTest {
         assertNotNull(carro1);
     }
 
-   @Test
+   @Test(expected= UnsupportedOperationException.class)
     public void testCadastrarVeiculo2() {
         LocadoraDAO dao = new LocadoraDAO();
         VeiculoDTO carro2 = new VeiculoDTO("", "", "", "", "", "");
         dao.cadastrarVeiculo(3, carro2);
-        assertNotNull(carro2);
+        
     }
 
   
