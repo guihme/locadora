@@ -250,8 +250,5 @@ public class loginVIEW extends javax.swing.JFrame {
           if(id_veiculo != -1){
            VeiculoDTO.setCount(++id_veiculo);
         }
-          
-          JOptionPane.showMessageDialog(null, "" + id);
-          JOptionPane.showMessageDialog(null, "" + id_veiculo);
     }
 }

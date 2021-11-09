@@ -220,30 +220,32 @@ public class LocadoraDAO implements Locadora{
     public ArrayList<VeiculoDTO> PesquisarVeiculoLocadora(int idLocadora) {
         String sql = "select * FROM veiculo where id_locadora = ?";
         con = new ConexaoDAO().conexao();
+        ArrayList<VeiculoDTO> veiculosPesquisados = new ArrayList<>();
 
         try {
-            stm = con.prepareStatement(sql);
-            stm.setInt(1, idLocadora);
-            res = stm.executeQuery();
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setInt(1, idLocadora);
+            ResultSet rs = pstm.executeQuery();
 
-            while (res.next()) {
+            while (rs.next()) {
                 VeiculoDTO veiculo = new VeiculoDTO();
-                veiculo.setId(res.getInt("id"));
-                veiculo.setId_locadora(res.getInt("id_locadora"));
-                veiculo.setMarca(res.getString("marca"));
-                veiculo.setModelo(res.getString("modelo"));
-                veiculo.setAno(res.getString("ano"));
-                veiculo.setAcessorios(res.getString("acessorios"));
-                veiculo.setCategoria(res.getString("categoria"));
-                veiculo.setPreco(res.getString("preco"));
+                veiculo.setId(rs.getInt("id"));
+                veiculo.setId_locadora(rs.getInt("id_locadora"));
+                veiculo.setMarca(rs.getString("marca"));
+                veiculo.setModelo(rs.getString("modelo"));
+                veiculo.setAno(rs.getString("ano"));
+                veiculo.setAcessorios(rs.getString("acessorios"));
+                veiculo.setCategoria(rs.getString("categoria"));
+                veiculo.setPreco(rs.getString("preco"));
 
-                listaVeiculo.add(veiculo);
+                veiculosPesquisados.add(veiculo);
             }
+            
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Pesquisar:" + e);
 
         }
-        return listaVeiculo;
+        return veiculosPesquisados;
     }
 
     /**
@@ -434,34 +436,37 @@ public class LocadoraDAO implements Locadora{
         con = new ConexaoDAO().conexao();
 
         try {
-            stm = con.prepareStatement(sql);
+           
+            PreparedStatement pstm = con.prepareStatement(sql);
 
-            stm.setString(1, "%" + pesquisa + "%");
+            pstm.setString(1, "%" + pesquisa + "%");
 
-            res = stm.executeQuery();
-
-            while (res.next()) {
+            ResultSet rs = pstm.executeQuery();
+           
+            while (rs.next()) {
                 LocadoraDTO locadora = new LocadoraDTO();
                 LocalizacaoDTO localizacao = new LocalizacaoDTO();
-                locadora.setId(res.getInt("id"));
-                locadora.setNome(res.getString("nome"));
-                locadora.setCnpj(res.getString("cnpj"));
-                locadora.setTelefone(res.getString("telefone"));
-                localizacao.setEndereco(res.getString("endereco"));
-                localizacao.setBairro(res.getString("bairro"));
-                localizacao.setCidade(res.getString("cidade"));
-                localizacao.setEstado(res.getString("estado"));
+                locadora.setId(rs.getInt("id"));
+                locadora.setNome(rs.getString("nome"));
+                locadora.setCnpj(rs.getString("cnpj"));
+                locadora.setTelefone(rs.getString("telefone"));
+                localizacao.setEndereco(rs.getString("endereco"));
+                localizacao.setBairro(rs.getString("bairro"));
+                localizacao.setCidade(rs.getString("cidade"));
+                localizacao.setEstado(rs.getString("estado"));
                 locadora.setLocalizacao(localizacao);
                 locadora.setVeiculos(PesquisarVeiculoLocadora(locadora.getId()));
 
                 if (locadora.getVeiculos().size() > 0) {
                     lista.add(locadora);
                 }
+               
             }
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Buscar Locadoras:" + e);
 
         }
+        JOptionPane.showMessageDialog(null, lista.size());
         return lista;
     }
 
