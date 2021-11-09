@@ -329,7 +329,6 @@ public class locadoraVIEW extends javax.swing.JFrame {
                    lista.get(num).getPreco()
                });
        }
-           JOptionPane.showMessageDialog(null, coluna);
     }
 
    }

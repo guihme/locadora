@@ -466,7 +466,7 @@ public class LocadoraDAO implements Locadora{
             JOptionPane.showConfirmDialog(null, "FuncionarioDAO Buscar Locadoras:" + e);
 
         }
-        JOptionPane.showMessageDialog(null, lista.size());
+
         return lista;
     }
 

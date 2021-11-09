@@ -223,7 +223,6 @@ public class listarVIEW extends javax.swing.JFrame {
        
        String coluna = filtroSelecionado[cbxFiltro.getSelectedIndex()];
        
-       JOptionPane.showMessageDialog(null,coluna +  pesquisa + cbxFiltro.getSelectedIndex());
        
        if(cbxFiltro.getSelectedIndex() == 0){
            listarlocadoras();
