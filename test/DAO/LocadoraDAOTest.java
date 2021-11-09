@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author layan
+ * classe com alguns casos de testes
  */
 public class LocadoraDAOTest {
     
@@ -19,6 +20,9 @@ public class LocadoraDAOTest {
     }
 
     
+    /**
+     *Testando cadastro de veiculos com todos os dados
+     */
     @Test
     public void testCadastroVeiculos1() {
         LocadoraDAO dao = new LocadoraDAO();
@@ -26,7 +30,9 @@ public class LocadoraDAOTest {
         dao.cadastrarVeiculo(3, carro1);
         assertNotNull(carro1);
     }
-
+    /**
+     *Testando cadastro de veiculos com campos em branco
+     */
    @Test(expected= UnsupportedOperationException.class)
     public void testCadastrarVeiculo2() {
         LocadoraDAO dao = new LocadoraDAO();
@@ -34,7 +40,9 @@ public class LocadoraDAOTest {
         dao.cadastrarVeiculo(3, carro2);
         
     }
-
+    /**
+     *Testando igualdade das listas
+     */
   
     @Test
     public void testListarVeiculos() {

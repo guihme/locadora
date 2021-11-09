@@ -10,6 +10,7 @@ import java.util.ArrayList;
 /**
  *
  * @author guilh
+ * classe com os atributos de uma locadora
  */
 public class LocadoraDTO {
     private static int count = 0;

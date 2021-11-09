@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author guilh
+ * Classe para janela de listas locadoras e veiculos
  */
 public class listarVIEW extends javax.swing.JFrame {
 
@@ -165,6 +166,9 @@ public class listarVIEW extends javax.swing.JFrame {
     private javax.swing.JTextField txtPesquisa;
     // End of variables declaration//GEN-END:variables
 
+     /**
+     * apresenta todas as locadora e suas infomações cadastradas no banco de dados
+     */
    private void listarlocadoras(){
        try {
            LocadoraDAO locadora = new LocadoraDAO();
@@ -199,7 +203,9 @@ public class listarVIEW extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"listar valores" + e);
        }
    } 
-   
+     /**
+     * filtro de buscas
+     */
    private void filtrarBusca(){
        LocadoraDAO locadora = new LocadoraDAO();
        LocadoraDTO loca = new LocadoraDTO();

@@ -8,6 +8,7 @@ package DTO;
 /**
  *
  * @author guilh
+ * Classe com os atributos da localização de uma locadora
  */
 public class LocalizacaoDTO {
     

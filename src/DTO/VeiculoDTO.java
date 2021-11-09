@@ -8,6 +8,7 @@ package DTO;
 /**
  *
  * @author guilh
+ * Classe com os atributos de um veiculo
  */
 public class VeiculoDTO {
     private static int count = 0;
