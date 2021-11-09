@@ -12,6 +12,7 @@ import DTO.LocalizacaoDTO;
 /**
  *
  * @author guilh
+ * Classe para a janela de cadastro de locadora
  */
 public class cadastroVIEW extends javax.swing.JFrame {
 
@@ -190,7 +191,9 @@ public class cadastroVIEW extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * botões e campos que são preenchidos
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         LocadoraDAO objlocadora = new LocadoraDAO();
         String nome_locadora, cnpj_locadora, telefone_locadora, usuario, senha;

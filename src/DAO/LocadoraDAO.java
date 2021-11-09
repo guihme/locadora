@@ -11,6 +11,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
+    /**
+     *Classe principal, implementa todos os metodos da intenface locadora 
+     *e outros que são necessarios para a aplicação
+     */
+
 public class LocadoraDAO implements Locadora{
 
     Connection con;
@@ -24,6 +29,7 @@ public class LocadoraDAO implements Locadora{
      *
      * @param locadora
      * @return
+     * autenticação de login
      */
     @Override
     public ResultSet autenticar(LocadoraDTO locadora) {
@@ -49,6 +55,7 @@ public class LocadoraDAO implements Locadora{
     /**
      *
      * @return
+     * maior id, ultima locadora cadastrada
      */
     @Override
     public int maiorIdLocadora() {
@@ -73,6 +80,7 @@ public class LocadoraDAO implements Locadora{
     /**
      *
      * @return
+     * maior id, ultimo veiculo cadastrado
      */
     @Override
     public int maiorIdVeiculo() {
@@ -98,6 +106,7 @@ public class LocadoraDAO implements Locadora{
      *
      * @param locadora
      * @param localizacao
+     * cadastro de uma nova locadora
      */
     @Override
     public void cadastrarLocadora(LocadoraDTO locadora, LocalizacaoDTO localizacao) {
@@ -179,6 +188,7 @@ public class LocadoraDAO implements Locadora{
      *
      * @param idLocadora
      * @param veiculo
+     * cadastro de um novo veiculo da locadora
      */
     @Override
     public void cadastrarVeiculo(int idLocadora, VeiculoDTO veiculo) {
@@ -215,6 +225,7 @@ public class LocadoraDAO implements Locadora{
      *
      * @param idLocadora
      * @return
+     * pesquisar veiculos de uma locadora
      */
     @Override
     public ArrayList<VeiculoDTO> PesquisarVeiculoLocadora(int idLocadora) {
@@ -249,6 +260,7 @@ public class LocadoraDAO implements Locadora{
     /**
      *
      * @return
+     * listar todos os veiculos cadastrados
      */
     @Override
     public ArrayList<VeiculoDTO> listarVeiculos() {
@@ -283,6 +295,7 @@ public class LocadoraDAO implements Locadora{
      *
      * @param idLocadora
      * @return
+     * Buscar por locadora cadastrada no banco de dados
      */
     @Override
     public LocadoraDTO encontrarLocadora(int idLocadora) {
@@ -318,6 +331,7 @@ public class LocadoraDAO implements Locadora{
      *
      * @param id
      * @return
+     * buscar veiculos cadastrados pela locadora
      */
     @Override
     public VeiculoDTO buscarVeiculo(int id) {
@@ -348,6 +362,7 @@ public class LocadoraDAO implements Locadora{
     /**
      *
      * @param veiculo
+     * editar veiculo selecionado da locadora
      */
     @Override
     public void editarVeiculo(VeiculoDTO veiculo) {
@@ -376,6 +391,7 @@ public class LocadoraDAO implements Locadora{
     /**
      *
      * @param id
+     * excluir veiculo selecionado da locadora
      */
     @Override
     public void deletarVeiculo(int id) {
@@ -396,7 +412,14 @@ public class LocadoraDAO implements Locadora{
         }
 
     }
-
+    /**
+     *
+     * @param idLocadora
+     * @param coluna
+     * @param pesquisa
+     * @return
+     * Pesquisa por todos os veiculos de uma locadora cadastrados no banco de dados
+     */
     public ArrayList<VeiculoDTO> fitrarPorVeiculoLocadora(int idLocadora, String coluna, String pesquisa) {
         String sql = String.format("select * FROM veiculo where id_locadora = ? and %s like ?", coluna);
         con = new ConexaoDAO().conexao();
@@ -428,7 +451,13 @@ public class LocadoraDAO implements Locadora{
         }
         return listaVeiculo;
     }
-
+    /**
+     *
+     * @param coluna
+     * @param pesquisa
+     * @return
+     * Pesquisa por todas as locadoras no banco de dados
+     */
     public ArrayList<LocadoraDTO> fitrarPorLocadora(String coluna, String pesquisa) {
         String sql = String.format("select * FROM locadora where %s like ?", coluna);
         con = new ConexaoDAO().conexao();
@@ -464,7 +493,14 @@ public class LocadoraDAO implements Locadora{
         }
         return lista;
     }
-
+    
+    /**
+     *
+     * @param coluna
+     * @param pesquisa
+     * @return
+     * Pesquisa por todos os veiculos cadastrados no banco de dados
+     */
     public ArrayList<VeiculoDTO> fitrarPorVeiculo(String coluna, String pesquisa) {
         String sql = String.format("select * FROM veiculo where %s like ?", coluna);
         con = new ConexaoDAO().conexao();
@@ -495,7 +531,9 @@ public class LocadoraDAO implements Locadora{
         }
         return listaVeiculo;
     }
-
+    /**
+     * metodo para casos de campo em branco, permanecer na janela de cadastro para preencer os dados
+     */
     private void requestFocus() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

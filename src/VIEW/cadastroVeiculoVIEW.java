@@ -11,6 +11,7 @@ import DTO.VeiculoDTO;
 /**
  *
  * @author guilh
+ * classe para janela de cadastro de veiculos
  */
 public class cadastroVeiculoVIEW extends javax.swing.JFrame {
     int id_locadora;
@@ -153,7 +154,9 @@ public class cadastroVeiculoVIEW extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * botões e campos que são preenchidos
+     */
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         String marca, modelo, ano, categoria, acessorios, preco;
         

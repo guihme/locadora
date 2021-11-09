@@ -6,7 +6,9 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-
+    /**
+     *Classe de conexão com o banco de dados
+     */
 
 public class ConexaoDAO {
     

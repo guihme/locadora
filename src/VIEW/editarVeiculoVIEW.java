@@ -11,6 +11,7 @@ import DTO.VeiculoDTO;
 /**
  *
  * @author guilh
+ * Classe para janela para editar veiculo selecionado pela locadora
  */
 public class editarVeiculoVIEW extends javax.swing.JFrame {
     int id_locadora;
@@ -227,7 +228,12 @@ public class editarVeiculoVIEW extends javax.swing.JFrame {
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
-public void carregarVeiculo(int id){
+
+     /**
+     * carregar os dados do veiculo na tela
+     * @param id
+     */
+    public void carregarVeiculo(int id){
     VeiculoDTO veiculo = new VeiculoDTO();
     LocadoraDAO locadora = new LocadoraDAO();
     
@@ -241,7 +247,9 @@ public void carregarVeiculo(int id){
     txtAcessorio.setText(veiculo.getAcessorios());
     txtPreco.setText(veiculo.getPreco());
 }
-
+    /**
+     * editar os dados que aparecem na tela
+     */
 public void editarVeiculo(){
     String marca, modelo, ano, categoria, acessorios, preco;
     int id;

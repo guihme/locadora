@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="1" failures="0" hostname="DESKTOP-H7FF8AE" name="DAO.LocadoraDAOTest" skipped="0" tests="3" time="6.779" timestamp="2021-11-08T13:49:43">
+<testsuite errors="0" failures="0" hostname="DESKTOP-H7FF8AE" name="DAO.LocadoraDAOTest" skipped="0" tests="3" time="18.956" timestamp="2021-11-09T18:25:38">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="BR" />
@@ -59,7 +59,7 @@
     <property name="libs.j2me_common_ant.maven-pom" value="" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner DAO.LocadoraDAOTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\layan\Documents\GitHub\locadora\build\test\results\TEST-DAO.LocadoraDAOTest.xml crashfile=C:\Users\layan\Documents\GitHub\locadora\build\junitvmwatcher2622111085308004204.properties propsfile=C:\Users\layan\Documents\GitHub\locadora\build\junit5735848143156693017.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner DAO.LocadoraDAOTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\layan\Documents\GitHub\locadora\build\test\results\TEST-DAO.LocadoraDAOTest.xml crashfile=C:\Users\layan\Documents\GitHub\locadora\build\junitvmwatcher217275639694516266.properties propsfile=C:\Users\layan\Documents\GitHub\locadora\build\junit7502264819985717773.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -426,17 +426,11 @@
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="DAO.LocadoraDAOTest" name="testListarVeiculos" time="2.175" />
-  <testcase classname="DAO.LocadoraDAOTest" name="testCadastrarVeiculo2" time="2.391">
-    <error message="Not supported yet." type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException: Not supported yet.
-	at DAO.LocadoraDAO.requestFocus(LocadoraDAO.java:429)
-	at DAO.LocadoraDAO.cadastrarVeiculo(LocadoraDAO.java:157)
-	at DAO.LocadoraDAOTest.testCadastrarVeiculo2(LocadoraDAOTest.java:34)
-</error>
-  </testcase>
-  <testcase classname="DAO.LocadoraDAOTest" name="testCadastroVeiculos1" time="2.04" />
+  <testcase classname="DAO.LocadoraDAOTest" name="testListarVeiculos" time="1.643" />
+  <testcase classname="DAO.LocadoraDAOTest" name="testCadastrarVeiculo2" time="10.416" />
+  <testcase classname="DAO.LocadoraDAOTest" name="testCadastroVeiculos1" time="6.814" />
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Mon Nov 08 11:49:44 BRST 2021 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-Mon Nov 08 11:49:48 BRST 2021 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+  <system-err><![CDATA[Tue Nov 09 16:25:38 BRST 2021 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Tue Nov 09 16:25:50 BRST 2021 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
 ]]></system-err>
 </testsuite>

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 /**
  *
  * @author guilh
+ * Classe interface com os principais metodos de uma locadora
  */
 public interface  Locadora {
   

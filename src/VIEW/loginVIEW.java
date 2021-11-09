@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 /**
  *
  * @author guilh
+ * Clase para a janela de login da locadora
  */
 public class loginVIEW extends javax.swing.JFrame {
 

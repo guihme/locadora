@@ -14,11 +14,13 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author guilh
+ * Classe para janela da locadora cadastrada com lista dos veiculos
  */
 public class locadoraVIEW extends javax.swing.JFrame {
     int id_locadora;
     /**
      * Creates new form locadoraVIEW
+     * @param idLocadora
      */
     public locadoraVIEW(int idLocadora) {
         initComponents();
@@ -169,14 +171,18 @@ public class locadoraVIEW extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * metodo para abrir janela de adicionar um novo veiculo
+     */
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         cadastroVeiculoVIEW cadVeiculo = new cadastroVeiculoVIEW(id_locadora);
         cadVeiculo.setVisible(true);
         
         dispose();
     }//GEN-LAST:event_btnAdicionarActionPerformed
-
+    /**
+     * metodo para abrir janela de editar veiculo selecionado
+     */
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         int setar = tabelaVeiculos.getSelectedRow();
         if(setar == - 1){
@@ -189,7 +195,9 @@ public class locadoraVIEW extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_btnEditarActionPerformed
-
+     /**
+     * metodo para abrir janela de excluir veiculo selecionado
+     */
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         int setar = tabelaVeiculos.getSelectedRow();
         
